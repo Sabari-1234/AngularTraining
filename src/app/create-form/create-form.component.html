@@ -1,0 +1,29 @@
+<form action="" #createForm="ngForm">
+
+    <div>
+        <input type="text" placeholder="name" name="name" ngModel>
+    </div>
+
+    <div>
+        <input type="text" placeholder="tamil mark" name="tamil" ngModel>
+    </div>
+
+    <div>
+        <input type="text" placeholder="english mark" name="english" ngModel>
+    </div>
+
+
+    <div>
+        <input type="text" placeholder="maths mark" name="maths" ngModel>
+    </div>
+    <div>
+        <input type="text" placeholder="science mark" name="science" ngModel>
+    </div>
+    <div>
+        <input type="text" placeholder="social mark" name="social" ngModel>
+    </div>
+    <div>
+        <button type="submit" (click)="submit(createForm.form.value)">create</button>
+    </div>
+    
+</form>

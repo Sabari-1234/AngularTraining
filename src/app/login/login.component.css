@@ -1,0 +1,101 @@
+.d-none{
+    display: none;
+}
+
+.root{
+    height: 100vh;
+    width: 100vw;
+   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(https://t4.ftcdn.net/jpg/01/23/62/97/240_F_123629761_4RiQkpLpq1vuVa48etmbwA04NlhPBOz5.jpg);
+    
+    background-size:cover;
+    background-repeat: no-repeat;
+  
+    
+    
+   }
+
+.root .form-cont{
+   
+    height: 60%;
+
+    width: 30%;
+   
+   
+
+    border-radius: 20px;
+    border-bottom: #B9B5B0 solid 5px;
+    display: flex;
+    justify-content: center;
+   
+    align-items: center;
+
+    -webkit-backdrop-filter: blur(50px); 
+    backdrop-filter: blur(50px);
+    
+    
+}
+
+form{
+    display: flex;
+    gap: 70px;
+    flex-direction: column;
+   
+   
+}
+.inp{
+    width: 300px;
+
+    height: 40px;
+
+    border-radius: 10px;
+ outline: none;
+  border: none;
+    border-bottom: rgb(75, 74, 74) solid 3px;
+
+    color: skyblue;
+    background: transparent;
+
+    font-weight: bold;
+    font-size: medium;
+   padding-left: 45px;
+}
+
+
+.inp1{
+    width: 343px;
+    padding-left: 2px;
+
+    
+}
+.error{
+    position: absolute;
+    left: 5px;
+
+    top: 60px;
+
+    color: red;
+    font-size: large;
+    font-weight: bold;
+}
+
+.out,.out1{
+    position: relative;
+}
+
+.icon{
+    position: absolute;
+    left: 10px;
+    top: 8px;
+    color: rgb(75, 74, 74);
+}
+
+.eyeicon{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    color: rgb(75, 74, 74);
+}

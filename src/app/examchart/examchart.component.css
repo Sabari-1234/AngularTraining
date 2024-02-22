@@ -1,0 +1,23 @@
+.main{
+    display: flex;
+
+    margin: 20px 35px ;
+    
+    gap: 15px;
+
+    padding-bottom: 20px;
+
+
+}
+.a{
+
+    border: 2px solid grey;
+
+    border-radius:20px 0px 20px 0px;
+    box-shadow: 5px 10px 18px #888888;
+ 
+
+}
+#pie-chart{
+    padding: 5px 1.9px 0px 1.9px;
+}

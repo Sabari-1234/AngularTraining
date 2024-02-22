@@ -1,0 +1,76 @@
+
+    
+    
+    <app-header></app-header>
+<div class="out">
+    <form action="" #form2="ngForm">
+      <div style="color: brown;"> {{form2.form.value | json}}</div>
+        
+
+        <div>
+            <input type="text" ngModel #firstname="ngModel" name="firstName" placeholder="FirstName" class="inp">  
+        </div>
+        <div>
+            <input type="text" ngModel #lastname="ngModel" name="lastName" placeholder="LastName" class="inp">  
+        </div>
+        <div>
+            <input type="mail" ngModel #email="ngModel" name="email" placeholder="pincode" class="inp">  
+        </div>
+        
+        <div>
+            <input type="text"  ngModel #phone="ngModel" name="phone" placeholder="phone" class="inp">
+        </div>
+        <div class="inp rad">
+
+            <div>
+                <label for="">Gender:</label>
+                <input type="radio"  ngModel #radio="ngModel" name="radio" value="male"><label for="">Male</label>
+            
+                <input type="radio"  ngModel #radio="ngModel" name="radio" value="female" ><label for="">Female</label>
+              
+            </div>
+            
+        
+        </div>
+        
+        <div>
+            <select name="country" id="" class="inp inp1" ngModel #country="ngModel">
+                <option value="">select country</option>
+                <option [value]="country" *ngFor="let country of countries">{{country}}</option>
+            </select>
+        </div>
+        
+        <div>
+            <select name="state" id="" class="inp inp1" ng ngModel #state="ngModel">
+                <option value="">select state</option>
+                <option [value]="state" *ngFor="let state of states">{{state}}</option>
+            </select>
+        </div>
+        
+        <div>
+            <select name="city" id="" class="inp inp1" ngModel #city="ngModel">
+                <option value="">select city</option>
+                <option [value]="city" *ngFor="let city of cities">{{city}}</option>
+            </select>
+        
+        </div>
+        
+        <div>
+            <input type="text" ngModel #pincode="ngModel" name="pincode" placeholder="pincode" class="inp">
+        </div>
+        
+        
+        <div>
+            <textarea name="review" id=""  ngModel #review="ngModel" placeholder="review" class="inp"></textarea>
+        </div>
+
+        <div>
+            <button   class="inp inp1">SUBMIT</button>
+        </div>
+        
+        
+        
+        
+          </form>
+</div>
+ 

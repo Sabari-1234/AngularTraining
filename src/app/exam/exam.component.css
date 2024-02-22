@@ -1,0 +1,88 @@
+.out{
+    background-image: url(../../assets/gifs/Animation\ -\ 1707384050363.gif);
+    height: 100vh;
+    width: 100vw;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+  
+
+}
+
+form{
+    background-color: rgb(141, 127, 103);
+
+    height: 80%;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+
+   padding: 40px;
+    align-items: center;
+    gap: 30px;
+
+    overflow-y: scroll;
+
+    border-radius: 10px;
+}
+
+    
+
+.name{
+    height: 40px;
+    width:750px ;
+
+    border-radius: 10px;
+    outline: none;
+
+    border:none;
+    border-bottom: grey solid 4px;
+    color: rgb(102, 159, 228);
+    font-size: medium;
+    font-weight: bold;
+    padding-left: 10px;
+
+
+}
+
+input::placeholder{
+    font-size: medium;
+    font-weight: bold;
+    
+}
+
+.q{
+    background-color: white;
+    border-radius: 10px;
+    border-bottom: grey solid 4px;
+
+    
+    width: 80%;
+
+    padding: 15px;
+
+
+    
+}
+
+label{
+    color: black;
+
+    font-weight: bold;
+    font-size: medium;
+}
+
+button{
+    height: 40px;
+    width:120px ;
+    border-radius: 10px;
+   border: none;
+    border-bottom: grey solid 4px;
+
+    background-color: yellow;
+    color: grey;
+    font-weight: bold;
+    font-size: medium;
+}

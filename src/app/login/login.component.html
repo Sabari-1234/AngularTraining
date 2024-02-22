@@ -1,0 +1,63 @@
+<div class="root">
+  <div class="form-cont">
+    <form action="" #form1="ngForm">
+      <div class="out1">
+        <mat-icon class="icon"> mail</mat-icon>
+        <input
+          type="email"
+          #mail="ngModel"
+          ngModel
+          required
+          pattern="^[\S]+@[\S]+\.[\S]+$"
+          name="mail"
+          class="inp"
+          (input)="mailfun($event)"
+          placeholder="Email"
+        />
+
+        <div *ngIf="mail.errors && mail.touched" class="error">
+          <small *ngIf="mail.errors?.['required']">email is required</small>
+
+          <small *ngIf="mail.errors?.['pattern']">enter valid email</small>
+        </div>
+      </div>
+
+      <div class="out">
+        <mat-icon class="icon"> lock</mat-icon>
+        <div class="eyeicon" (click)="eyeChange()">
+          <mat-icon *ngIf="eye">visibility</mat-icon>
+          <mat-icon *ngIf="!eye">visibility_off</mat-icon>
+        </div>
+
+        <input
+          [type]="eye ? 'password' : 'text'"
+          ngModel
+          #pass="ngModel"
+          pattern="^(?=.*\d)(?=.*[A-Z])(?=.*[\W_])[A-za-z\d\W_]{8,}$"
+          name="password"
+          (input)="passfun($event)"
+          required
+          class="inp"
+          placeholder="password"
+        />
+        <div *ngIf="pass.errors && pass.touched" class="error">
+          <small *ngIf="pass.errors?.['required']">password is required</small>
+
+          <small *ngIf="pass.errors?.['pattern']">enter valid password</small>
+        </div>
+      </div>
+
+      <div>
+        <button
+          type="submit"
+          [disabled]="!form1.form.valid"
+          class="inp inp1"
+          routerLink="../home"
+          (click)="fun()"
+        >
+          LOGIN
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

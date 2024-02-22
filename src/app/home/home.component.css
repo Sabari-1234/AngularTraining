@@ -1,0 +1,80 @@
+
+
+  .out{
+    
+    height: 91.2vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(https://media1.tenor.com/m/f0cKyHniahEAAAAd/background-khaoticfuture.gif);
+
+    background-repeat: no-repeat;
+background-size: cover;
+    
+
+
+  }
+  .header{
+    position: sticky;
+    top: 0px;
+    left: 0px;
+   
+    
+  }
+
+  form{
+   
+    height: 98%;
+    width: 40%;
+    border-radius: 10px;
+  display: flex;
+flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  -webkit-backdrop-filter: blur(50px); 
+    backdrop-filter: blur(50px);
+  }
+
+  .inp{
+    width: 334px;
+
+    height: 40px;
+
+    border-radius: 10px;
+ outline: none;
+  border: none;
+    border-bottom: rgb(75, 74, 74) solid 3px;
+
+    color:  rgb(102, 159, 228);
+    background-color: yellow;
+
+    font-weight: bold;
+    font-size: medium;
+
+    padding-left: 10px;
+
+    background: transparent;
+   
+}
+
+.inp1{
+    width: 344px;
+}
+
+
+label{
+    
+    
+      font-weight: 500;
+    color:  rgb(102, 159, 228);
+
+   
+}
+
+.rad{
+    display: flex;
+    
+    align-items: center;
+}

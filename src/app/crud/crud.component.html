@@ -1,0 +1,484 @@
+<app-header></app-header>
+
+<div style="height: 91vh; width: 100vw" class="out">
+  <div class="add">
+    <div class="search">
+      <input
+        type="text"
+        placeholder="search"
+        #search="ngModel"
+        (input)="Search(search.value)"
+        class="search__input"
+        [(ngModel)]="val"
+        autofocus
+      />
+
+      <mat-icon
+        class="search__icon"
+        (click)="clean()"
+        *ngIf="search.dirty && !searched"
+        >close</mat-icon
+      >
+      <mat-icon class="search__icon" *ngIf="search.pristine || searched"
+        >search</mat-icon
+      >
+    </div>
+
+    <div class="but">
+      <div>
+        <button (click)="unorder()" class="button">
+          <span class="button__text">Un order</span>
+          <span class="button__icon"
+            ><mat-icon class="ico"> block</mat-icon>
+          </span>
+        </button>
+      </div>
+
+      <div>
+        <button (click)="Sort()" class="button">
+          <span class="button__text">Asc</span>
+          <span class="button__icon"
+            ><mat-icon class="ico"> arrow_upward</mat-icon>
+          </span>
+        </button>
+      </div>
+
+      <div>
+        <button (click)="desc()" class="button">
+          <span class="button__text">Desc</span>
+          <span class="button__icon"
+            ><mat-icon class="ico"> arrow_downward</mat-icon>
+          </span>
+        </button>
+      </div>
+      <div>
+        <button (click)="add()" class="button">
+          <span class="button__text">Add</span>
+          <span class="button__icon"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke-linejoin="round"
+              stroke-linecap="round"
+              stroke="currentColor"
+              height="24"
+              fill="none"
+              class="svg"
+            >
+              <line y2="19" y1="5" x2="12" x1="12"></line>
+              <line y2="12" y1="12" x2="19" x1="5"></line>
+            </svg>
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <form
+    action=""
+    #createForm="ngForm"
+    class="form1"
+    [class.visible]="!isAdd"
+    [class.form]="isAdd"
+  >
+    <div>
+      <label for=""><pre>Name     :</pre></label>
+      <input
+        type="text"
+        placeholder="name"
+        name="name"
+        ngModel
+        class="input"
+        required
+        #name="ngModel"
+      />
+      <div *ngIf="name.errors && name.touched" class="error">
+        Name is required
+      </div>
+    </div>
+
+    <div>
+      <label for=""><pre>Tamil    :</pre></label>
+      <input
+        type="number"
+        placeholder="tamil mark"
+        name="tamil"
+        ngModel
+        class="input"
+        required
+        #tamil="ngModel"
+      />
+      <div *ngIf="tamil.errors && tamil.touched" class="error">
+        Tamil mark is required
+      </div>
+    </div>
+
+    <div>
+      <label for=""><pre>English  :</pre></label>
+      <input
+        type="number"
+        placeholder="english mark"
+        name="english"
+        ngModel
+        class="input"
+        required
+        #english="ngModel"
+      />
+      <div *ngIf="english.errors && english.touched" class="error">
+        English mark is required
+      </div>
+    </div>
+
+    <div>
+      <label for=""><pre>Maths    :</pre></label>
+      <input
+        type="number"
+        placeholder="maths mark"
+        name="maths"
+        ngModel
+        class="input"
+        required
+        #maths="ngModel"
+      />
+      <div *ngIf="maths.errors && maths.touched" class="error">
+        Maths mark is required
+      </div>
+    </div>
+
+    <div>
+      <label for=""><pre>Science  :</pre></label>
+      <input
+        type="number"
+        placeholder="science mark"
+        name="science"
+        ngModel
+        class="input"
+        required
+        #science="ngModel"
+      />
+      <div *ngIf="science.errors && science.touched" class="error">
+        Science mark is required
+      </div>
+    </div>
+
+    <div>
+      <label for=""><pre>Social   :</pre></label>
+      <input
+        type="number"
+        placeholder="social mark"
+        name="social"
+        ngModel
+        class="input"
+        required
+        #social="ngModel"
+      />
+      <div *ngIf="social.errors && social.touched" class="error">
+        Social is required
+      </div>
+    </div>
+
+    <div class="btns" style="height: 40px">
+      <!-- <div>
+            <button type="submit" (click)="submit(createForm.form.value,createForm)"  class="button-confirm" [disabled]="!createForm.form.valid" [class.disable]="!createForm.form.valid">Add</button>
+        </div>
+        <div>
+            <button (click)="out(createForm)"  class="button-confirm">Close</button>
+        </div> -->
+
+      <button
+        type="submit"
+        class="btn button"
+        (click)="submit(createForm.form.value, createForm)"
+        [disabled]="!createForm.form.valid"
+        [class.disable]="!createForm.form.valid"
+      >
+        <span class="button__text">Save</span>
+        <span class="button__icon"> <mat-icon class="ico">save</mat-icon></span>
+      </button>
+
+      <button class="btn button" (click)="out(createForm)">
+        <span class="button__text">Close</span>
+        <span class="button__icon">
+          <mat-icon class="ico">close</mat-icon></span
+        >
+      </button>
+    </div>
+  </form>
+
+  <div class="table">
+    <table>
+      <thead>
+        <tr>
+          <th>NAME</th>
+          <th>TAMIL</th>
+          <th>ENGLISH</th>
+          <th>SCIENCE</th>
+          <th>MATHS</th>
+          <th>SOCIAL</th>
+          <th>TOTAL</th>
+          <th colspan="2">ACTIONS</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let detail of details">
+          <td>{{ detail.name }}</td>
+          <td>{{ detail.tamil }}</td>
+          <td>{{ detail.english }}</td>
+          <td>{{ detail.maths }}</td>
+          <td>{{ detail.science }}</td>
+          <td>{{ detail.social }}</td>
+          <td>{{ detail.totalMark }}</td>
+          <td>
+            <button (click)="deleted(detail.id)" class="btn button">
+              <span class="button__text">Delete</span>
+              <span class="button__icon"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="512"
+                  viewBox="0 0 512 512"
+                  height="512"
+                  class="svg"
+                >
+                  <title></title>
+                  <path
+                    style="
+                      fill: none;
+                      stroke: #fff;
+                      stroke-linecap: round;
+                      stroke-linejoin: round;
+                      stroke-width: 32px;
+                    "
+                    d="M112,112l20,320c.95,18.49,14.4,32,32,32H348c17.67,0,30.87-13.51,32-32l20-320"
+                  ></path>
+                  <line
+                    y2="112"
+                    y1="112"
+                    x2="432"
+                    x1="80"
+                    style="
+                      stroke: #fff;
+                      stroke-linecap: round;
+                      stroke-miterlimit: 10;
+                      stroke-width: 32px;
+                    "
+                  ></line>
+                  <path
+                    style="
+                      fill: none;
+                      stroke: #fff;
+                      stroke-linecap: round;
+                      stroke-linejoin: round;
+                      stroke-width: 32px;
+                    "
+                    d="M192,112V72h0a23.93,23.93,0,0,1,24-24h80a23.93,23.93,0,0,1,24,24h0v40"
+                  ></path>
+                  <line
+                    y2="400"
+                    y1="176"
+                    x2="256"
+                    x1="256"
+                    style="
+                      fill: none;
+                      stroke: #fff;
+                      stroke-linecap: round;
+                      stroke-linejoin: round;
+                      stroke-width: 32px;
+                    "
+                  ></line>
+                  <line
+                    y2="400"
+                    y1="176"
+                    x2="192"
+                    x1="184"
+                    style="
+                      fill: none;
+                      stroke: #fff;
+                      stroke-linecap: round;
+                      stroke-linejoin: round;
+                      stroke-width: 32px;
+                    "
+                  ></line>
+                  <line
+                    y2="400"
+                    y1="176"
+                    x2="320"
+                    x1="328"
+                    style="
+                      fill: none;
+                      stroke: #fff;
+                      stroke-linecap: round;
+                      stroke-linejoin: round;
+                      stroke-width: 32px;
+                    "
+                  ></line>
+                </svg>
+              </span>
+            </button>
+          </td>
+          <td>
+            <button (click)="updated(detail)" class="btn button">
+              <span class="button__text">Edit</span>
+              <span class="button__icon">
+                <mat-icon class="ico">edit</mat-icon></span
+              >
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <form
+    action=""
+    #updateForm="ngForm"
+    class="form1"
+    [class.visible]="!isUpdate"
+    [class.form]="isUpdate"
+  >
+    <div>
+      <label for=""><pre>Name     :</pre></label>
+      <input
+        type="text"
+        placeholder="name"
+        name="name"
+        [(ngModel)]="singleObjById.name"
+        class="input"
+        #name1="ngModel"
+        required
+      />
+      <div *ngIf="name1.errors && name1.touched" class="error">
+        Name is required
+      </div>
+    </div>
+
+    <div>
+      <label for=""><pre>Tamil    :</pre></label>
+      <input
+        type="number"
+        placeholder="tamil mark"
+        name="tamil"
+        [(ngModel)]="singleObjById.tamil"
+        class="input"
+        #tamil1="ngModel"
+        required
+      />
+      <div *ngIf="tamil1.errors && tamil1.touched" class="error">
+        Tamil mark is required
+      </div>
+    </div>
+
+    <div>
+      <label for=""><pre>English  :</pre></label>
+      <input
+        type="number"
+        placeholder="english mark"
+        name="english"
+        [(ngModel)]="singleObjById.english"
+        class="input"
+        #english1="ngModel"
+        required
+      />
+      <div *ngIf="english1.errors && english1.touched" class="error">
+        English mark is required
+      </div>
+    </div>
+
+    <div>
+      <label for=""><pre>Maths    :</pre></label>
+      <input
+        type="number"
+        placeholder="maths mark"
+        name="maths"
+        [(ngModel)]="singleObjById.maths"
+        class="input"
+        #maths1="ngModel"
+        required
+      />
+      <div *ngIf="maths1.errors && maths1.touched" class="error">
+        Maths mark is required
+      </div>
+    </div>
+
+    <div>
+      <label for=""><pre>Science  :</pre></label>
+      <input
+        type="number"
+        placeholder="science mark"
+        name="science"
+        [(ngModel)]="singleObjById.science"
+        class="input"
+        #science1="ngModel"
+        required
+      />
+      <div *ngIf="science1.errors && science1.touched" class="error">
+        Science mark is required
+      </div>
+    </div>
+
+    <div>
+      <label for=""><pre>Social   :</pre></label>
+      <input
+        type="number"
+        placeholder="social mark"
+        name="social"
+        [(ngModel)]="singleObjById.social"
+        class="input"
+        #social1="ngModel"
+        required
+      />
+      <div *ngIf="social1.errors && social1.touched" class="error">
+        Social mark is required
+      </div>
+    </div>
+
+    <div class="btns" style="height: 40px">
+      <!-- <button type="submit" (click)="change(updateForm.form.value,singleObjById.id)" class=" button-confirm">Update</button> -->
+      <button
+        type="submit"
+        class="btn button"
+        (click)="change(updateForm.form.value, singleObjById.id)"
+        [disabled]="!updateForm.form.valid"
+        [class.disable]="!updateForm.form.valid"
+      >
+        <span class="button__text">Save</span>
+        <span class="button__icon"> <mat-icon class="ico">save</mat-icon></span>
+      </button>
+
+      <!-- <button (click)="out(updateForm) " class="button-confirm">Close</button> -->
+
+      <button class="btn button" (click)="out(updateForm)">
+        <span class="button__text">Close</span>
+        <span class="button__icon">
+          <mat-icon class="ico">close</mat-icon></span
+        >
+      </button>
+    </div>
+  </form>
+
+  <div class="navigate">
+    <button class="btn button" (click)="backward()">
+      <span class="button__text">Back</span>
+      <span class="button__icon">
+        <mat-icon class="ico">arrow_back</mat-icon></span
+      >
+    </button>
+
+    <p class="index" *ngIf="totalPages != 0">
+      {{ pageIndex + 1 }} of {{ totalPages }} Pages (Total Items :
+      {{ totalItems }})
+    </p>
+    <p class="index" *ngIf="totalPages == 0">
+      {{ pageIndex }} of {{ totalPages }} Pages (Total Items : {{ totalItems }})
+    </p>
+
+    <button class="btn button" (click)="forward()">
+      <span class="button__text">Next</span>
+      <span class="button__icon">
+        <mat-icon class="ico">arrow_forward</mat-icon></span
+      >
+    </button>
+  </div>
+</div>

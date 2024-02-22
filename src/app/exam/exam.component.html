@@ -1,0 +1,32 @@
+<app-header></app-header>
+<div class="out">
+    
+        <form action=""  #form3="ngForm" >
+
+        
+            <div>
+                <input type="text" placeholder="enter your name"  class="name" ngModel name="name"  required>
+            </div>
+
+            <div *ngFor= "let qanda of QandA"  class="q">
+                <label for="">{{qanda.q}}</label><br><br>
+                <div *ngFor ="let option of qanda.options">
+                    <input type="radio" [value]="option" [name]="qanda.qId"  ngModel required> <label for="" > {{option}}</label><br><br>
+                </div>
+                
+
+           </div>
+
+           <div>
+            <button [disabled]="!form3.form.valid" (click)="sub(form3.form.value,form3)" >SUBMIT</button>
+           </div>
+
+    </form>
+
+    </div>
+   
+  
+    <app-examchart></app-examchart>
+
+
+
