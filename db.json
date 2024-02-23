@@ -211,16 +211,6 @@
       "totalMark": 402
     },
     {
-      "id": "2142",
-      "name": "sabari",
-      "tamil": 90,
-      "english": 90,
-      "maths": 99,
-      "science": 55,
-      "social": 88,
-      "totalMark": 422
-    },
-    {
       "name": "kumar",
       "tamil": 88,
       "english": 90,
@@ -313,6 +303,16 @@
     {
       "id": "9f8f",
       "name": "sabari",
+      "tamil": 90,
+      "english": 90,
+      "maths": 99,
+      "science": 50,
+      "social": 33,
+      "totalMark": 362
+    },
+    {
+      "id": "02f9",
+      "name": "yyyy",
       "tamil": 90,
       "english": 90,
       "maths": 99,
