@@ -15,7 +15,7 @@ export class ExamComponent {
     | undefined;
 
   constructor(private api: ApiService) {
-    this.examChartComponent=undefined
+    //this.examChartComponent=undefined
   }
   count = 0;
   QandA = [
