@@ -6,6 +6,7 @@ import { ExamComponent } from './exam/exam.component';
 import { CrudComponent } from './crud/crud.component';
 import { LineChartComponent } from './line-chart/line-chart.component';
 import { DatePickerComponent } from './date-picker/date-picker.component';
+import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 
 const routes: Routes = [
   {
@@ -36,6 +37,10 @@ const routes: Routes = [
   {
     path: 'date',
     component: DatePickerComponent,
+  },
+  {
+    path: 'reactive-form',
+    component: ReactiveFormComponent,
   },
 ];
 

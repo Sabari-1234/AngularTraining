@@ -1,0 +1,101 @@
+<div>
+  <h1>Reactive form</h1>
+  <form [formGroup]="conatctForm" (submit)="onSubmit()">
+    <p>
+      <label for="firstname">FirstName</label>
+      <input type="text" name="firstname" formControlName="firstName" /><br />
+      <span
+        *ngIf="
+          !conatctForm.controls.firstName.valid &&
+          (conatctForm.controls.firstName.dirty ||
+            conatctForm.controls.firstName.touched)
+        "
+        >FirstName is required</span
+      >
+    </p>
+    <p>
+      <label for="lastname">LastName</label>
+      <input type="text" name="lastname" formControlName="lastName" /><br />
+      <span *ngIf="!lastname?.valid && (lastname?.dirty || lastname?.touched)">
+        <span *ngIf="lastname?.errors?.['required']">Lastname is required</span>
+        <span *ngIf="lastname?.errors?.['pattern']"
+          >Only chars are allowed</span
+        >
+        <span *ngIf="lastname?.errors?.['maxlength']"
+          >Maximum length is 10 char only</span
+        >
+      </span>
+    </p>
+    <p>
+      <label for="email">Email</label>
+      <input type="email" name="email" formControlName="email" /><br />
+      <span *ngIf="!Email?.valid && (Email?.dirty || Email?.touched)">
+        <span *ngIf="Email?.errors?.['required']">Email is required</span>
+        <span *ngIf="Email?.errors?.['pattern']">Invalid email</span>
+      </span>
+    </p>
+    <p>
+      <label for="gender">Gender</label>
+      <input
+        type="radio"
+        value="male"
+        name="gender"
+        id="gender"
+        formControlName="gender"
+      />male
+      <input
+        type="radio"
+        name="gender"
+        id="gender"
+        value="female"
+        formControlName="gender"
+      />Female
+    </p>
+    <p>
+      <label for="isMarried">Married</label>
+      <input
+        type="checkbox"
+        name="isMarried"
+        id="isMarried"
+        formControlName="isMarried"
+      /><br />
+      <span *ngIf="!married?.valid && (married?.dirty || married?.touched)">
+        <span *ngIf="married?.errors?.['required']"
+          >MarriedStatus is required</span
+        >
+      </span>
+    </p>
+    <p>
+      <label for="country">Country</label>
+      <select name="country" id="country" formControlName="country">
+        <option selected=" " value="">Select</option>
+        <option [ngValue]="country.id" *ngFor="let country of CountryList">
+          {{ country.name }}
+        </option>
+      </select>
+      <span *ngIf="!country?.valid && (country?.dirty || country?.touched)">
+        <span *ngIf="country?.errors?.['required']">Country is required</span>
+      </span>
+    </p>
+    <div formGroupName="address">
+      <p>
+        <label for="city">City</label>
+        <input type="text" name="city" formControlName="city" /><br />
+        <span *ngIf="!city?.valid && (city?.dirty || city?.touched)">
+          <span *ngIf="city?.errors?.['required']">City is required</span>
+        </span>
+      </p>
+      <p>
+        <label for="street">Street</label>
+        <input type="text" name="street" formControlName="street" />
+      </p>
+      <p>
+        <label for="pincode">Pincode</label>
+        <input type="text" name="pincode" formControlName="pincode" />
+      </p>
+    </div>
+    <p>
+      <button type="submit" [disabled]="!conatctForm.valid">Submit</button>
+    </p>
+  </form>
+</div>

@@ -7,7 +7,7 @@ import {
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { MatIconModule } from '@angular/material/icon';
 import { HomeComponent } from './home/home.component';
@@ -31,6 +31,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { provideNativeDateAdapter } from '@angular/material/core';
+import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { provideNativeDateAdapter } from '@angular/material/core';
     LineChartComponent,
     ExamchartComponent,
     DatePickerComponent,
+    ReactiveFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,11 +57,11 @@ import { provideNativeDateAdapter } from '@angular/material/core';
     MatButtonModule,
     HttpClientModule,
     MatSnackBarModule,
-
     BsDatepickerModule.forRoot(),
     MatFormFieldModule,
     MatInputModule,
     MatDatepickerModule,
+    ReactiveFormsModule,
   ],
   providers: [
     provideClientHydration(),
